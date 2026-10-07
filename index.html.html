@@ -4,14 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aiden Lau | Robotics & Hardware Engineering Portfolio</title>
-  <meta name="description" content="Portfolio of Aiden Lau — Robotics & Electrical Engineering student at UConn. Specializing in hardware validation, embedded firmware, PLC automation, and circuit design.">
+  <meta name="description" content="Aiden Lau - Robotics & Electrical Engineering student at UConn. Specializing in hardware validation, embedded C/C++, PLC automation, and analog circuit design.">
 
-  <!-- Inter & JetBrains Mono Fonts -->
+  <!-- Typography & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
@@ -20,8 +18,8 @@
       --card-bg: #111827;
       --card-border: #1f293d;
       --accent: #00f0ff;
-      --accent-glow: rgba(0, 240, 255, 0.18);
-      --accent-purple: #7928ca;
+      --accent-glow: rgba(0, 240, 255, 0.2);
+      --accent-purple: #8b5cf6;
       --text-main: #f3f4f6;
       --text-muted: #9ca3af;
       --code-font: 'Fira Code', monospace;
@@ -38,10 +36,9 @@
       color: var(--text-main);
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       line-height: 1.6;
-      overflow-x: hidden;
       background-image: 
-        radial-gradient(circle at 15% 15%, rgba(0, 240, 255, 0.05) 0%, transparent 40%),
-        radial-gradient(circle at 85% 65%, rgba(121, 40, 202, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 12% 10%, rgba(0, 240, 255, 0.06) 0%, transparent 45%),
+        radial-gradient(circle at 88% 60%, rgba(139, 92, 246, 0.06) 0%, transparent 45%),
         linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
       background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
@@ -52,8 +49,8 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      backdrop-filter: blur(12px);
-      background: rgba(9, 13, 22, 0.85);
+      backdrop-filter: blur(14px);
+      background: rgba(9, 13, 22, 0.88);
       border-bottom: 1px solid var(--card-border);
       padding: 1rem 2rem;
       display: flex;
@@ -65,7 +62,7 @@
       font-family: var(--code-font);
       font-weight: 700;
       color: var(--accent);
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       text-decoration: none;
       display: flex;
       align-items: center;
@@ -74,7 +71,7 @@
 
     .nav-links {
       display: flex;
-      gap: 1.5rem;
+      gap: 1.75rem;
       list-style: none;
     }
 
@@ -90,18 +87,17 @@
       color: var(--accent);
     }
 
-    /* Container */
     .container {
-      max-width: 1180px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 1.5rem;
     }
 
     /* Hero Section */
     .hero {
-      padding: 5rem 0 3.5rem;
+      padding: 4.5rem 0 3.5rem;
       display: grid;
-      grid-template-columns: 1.3fr 0.9fr;
+      grid-template-columns: 1.25fr 0.95fr;
       gap: 2.5rem;
       align-items: center;
     }
@@ -111,7 +107,7 @@
       align-items: center;
       gap: 0.5rem;
       font-family: var(--code-font);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--accent);
       background: rgba(0, 240, 255, 0.08);
       border: 1px solid rgba(0, 240, 255, 0.25);
@@ -126,24 +122,24 @@
       background: var(--accent);
       border-radius: 50%;
       box-shadow: 0 0 8px var(--accent);
-      animation: pulse 2s infinite;
+      animation: pulse-ring 2s infinite;
     }
 
-    @keyframes pulse {
+    @keyframes pulse-ring {
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.4; transform: scale(0.85); }
     }
 
     .hero h1 {
-      font-size: 2.85rem;
+      font-size: 2.9rem;
       font-weight: 800;
       line-height: 1.15;
-      margin-bottom: 1rem;
       letter-spacing: -0.02em;
+      margin-bottom: 1rem;
     }
 
     .hero h1 span {
-      background: linear-gradient(135deg, #00f0ff 0%, #70a6ff 50%, #9f7aea 100%);
+      background: linear-gradient(135deg, #00f0ff 0%, #60a5fa 60%, #c084fc 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -181,7 +177,7 @@
     }
 
     .btn-primary:hover {
-      box-shadow: 0 0 16px var(--accent-glow);
+      box-shadow: 0 0 18px var(--accent-glow);
       transform: translateY(-1px);
     }
 
@@ -196,21 +192,21 @@
       background: rgba(255,255,255,0.03);
     }
 
-    /* Terminal Widget */
+    /* Hero Terminal Box */
     .hero-card {
       background: #0d121f;
       border: 1px solid var(--card-border);
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.55);
     }
 
     .terminal-header {
-      background: #151b2c;
-      padding: 0.6rem 1rem;
+      background: #141b2c;
+      padding: 0.65rem 1rem;
       display: flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.45rem;
       border-bottom: 1px solid var(--card-border);
       font-family: var(--code-font);
       font-size: 0.75rem;
@@ -229,21 +225,15 @@
     .terminal-body {
       padding: 1.25rem;
       font-family: var(--code-font);
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       color: #cfd6e6;
     }
 
-    .terminal-body .field {
-      color: #79c0ff;
-    }
-    .terminal-body .str {
-      color: #a5d6ff;
-    }
-    .terminal-body .num {
-      color: #ff7b72;
-    }
+    .terminal-body .field { color: #79c0ff; }
+    .terminal-body .str { color: #a5d6ff; }
+    .terminal-body .num { color: #ff7b72; }
 
-    /* Section Styling */
+    /* Sections */
     section {
       padding: 4.5rem 0;
       border-top: 1px solid var(--card-border);
@@ -252,10 +242,10 @@
     .section-title {
       font-size: 1.85rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
       display: flex;
       align-items: center;
       gap: 0.75rem;
+      margin-bottom: 0.5rem;
     }
 
     .section-sub {
@@ -287,11 +277,12 @@
     }
 
     .exp-image-wrap {
-      height: 240px;
+      height: 270px;
       width: 100%;
-      overflow: hidden;
       background: #080b12;
       border-bottom: 1px solid var(--card-border);
+      position: relative;
+      cursor: pointer;
     }
 
     .exp-image-wrap img {
@@ -306,6 +297,23 @@
       transform: scale(1.02);
     }
 
+    .zoom-hint {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(9, 13, 22, 0.75);
+      border: 1px solid rgba(255,255,255,0.15);
+      font-family: var(--code-font);
+      font-size: 0.7rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      color: #e2e8f0;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
     .exp-content {
       padding: 1.5rem;
       display: flex;
@@ -317,11 +325,11 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.35rem;
     }
 
     .exp-title {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       font-weight: 700;
       color: #fff;
     }
@@ -330,21 +338,21 @@
       font-family: var(--code-font);
       color: var(--accent);
       font-size: 0.9rem;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.85rem;
     }
 
     .exp-date {
       font-family: var(--code-font);
       font-size: 0.78rem;
       color: var(--text-muted);
-      background: #182236;
+      background: #192336;
       padding: 0.2rem 0.6rem;
       border-radius: 4px;
     }
 
     .exp-bullets {
       list-style-type: none;
-      margin: 0.75rem 0 1.25rem;
+      margin: 0.5rem 0 1.25rem;
       flex: 1;
     }
 
@@ -353,7 +361,7 @@
       color: #cbd5e1;
       position: relative;
       padding-left: 1.25rem;
-      margin-bottom: 0.55rem;
+      margin-bottom: 0.6rem;
     }
 
     .exp-bullets li::before {
@@ -382,7 +390,7 @@
     /* Projects Grid */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
       gap: 2rem;
     }
 
@@ -402,9 +410,11 @@
     }
 
     .project-media {
-      height: 200px;
-      background: #090e17;
+      height: 220px;
+      background: #080d16;
       overflow: hidden;
+      position: relative;
+      cursor: pointer;
       border-bottom: 1px solid var(--card-border);
     }
 
@@ -413,10 +423,25 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover .project-media img {
+      transform: scale(1.03);
+    }
+
+    /* LTspice schematic specific white-box look */
+    .schematic-box {
+      background: #ffffff;
+      padding: 8px;
+    }
+
+    .schematic-box img {
+      object-fit: contain !important;
     }
 
     .project-info {
-      padding: 1.35rem;
+      padding: 1.4rem;
       display: flex;
       flex-direction: column;
       flex: 1;
@@ -432,14 +457,14 @@
     }
 
     .project-info h3 {
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       font-weight: 700;
       margin-bottom: 0.6rem;
     }
 
     .project-info p {
       color: #94a3b8;
-      font-size: 0.86rem;
+      font-size: 0.88rem;
       margin-bottom: 1.25rem;
       flex: 1;
     }
@@ -461,7 +486,6 @@
     .skill-category h4 {
       font-size: 0.95rem;
       font-weight: 700;
-      color: var(--text-main);
       display: flex;
       align-items: center;
       gap: 0.5rem;
@@ -492,6 +516,78 @@
       height: 4px;
       background: var(--accent);
       border-radius: 50%;
+    }
+
+    /* Modal Viewer */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 8, 15, 0.88);
+      backdrop-filter: blur(8px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      padding: 1.5rem;
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: #0f172a;
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      max-width: 900px;
+      width: 100%;
+      max-height: 90vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.8);
+      position: relative;
+    }
+
+    .modal-header {
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--card-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--code-font);
+      font-size: 0.9rem;
+      color: var(--accent);
+    }
+
+    .modal-close {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 1.25rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .modal-close:hover {
+      color: #fff;
+    }
+
+    .modal-body {
+      padding: 1.5rem;
+      overflow-y: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #070b13;
+    }
+
+    .modal-body img {
+      max-width: 100%;
+      max-height: 72vh;
+      object-fit: contain;
+      border-radius: 6px;
     }
 
     /* Footer */
@@ -540,10 +636,10 @@
         <div class="status-badge">
           <div class="pulse"></div> SEEKING HARDWARE ENGINEERING INTERNSHIP (BOSTON / REMOTE)
         </div>
-        <h1>Robotics & Hardware<br><span>System Engineer.</span></h1>
+        <h1>Robotics & Hardware<br><span>Systems Engineer.</span></h1>
         <p class="hero-summary">
-          Robotics Engineering student at the <strong>University of Connecticut</strong> (switching to Electrical Spring 2027, GPA: 3.78). 
-          Experienced in PLC-driven automation, LTspice mixed-signal simulation, embedded firmware (C/C++), and rapid prototyping.
+          Robotics Engineering student at the <strong>University of Connecticut</strong> (switching to Electrical Spring 2027, GPA: 3.78)[cite: 5]. 
+          Experienced in PLC-driven automation[cite: 5], LTspice mixed-signal simulation[cite: 2, 5], embedded firmware (C/C++)[cite: 5], and rapid electromechanical prototyping[cite: 5].
         </p>
         <div class="hero-ctas">
           <a href="Aiden_Lau_Resume.pdf" target="_blank" class="btn btn-primary">
@@ -558,7 +654,7 @@
         </div>
       </div>
 
-      <!-- Quick Telemetry / Profile Terminal Box -->
+      <!-- Quick Telemetry Box -->
       <div class="hero-card">
         <div class="terminal-header">
           <span class="dot dot-red"></span>
@@ -588,13 +684,14 @@
     <!-- Internships Section -->
     <section id="internships">
       <h2 class="section-title"><i data-lucide="briefcase" style="color: var(--accent);"></i> Industry Internships</h2>
-      <p class="section-sub">Demonstrated experience supporting critical laboratory automation and deploying agentic developer infrastructure.</p>
+      <p class="section-sub">Demonstrated experience configuring automated laboratory machinery and deploying agentic infrastructure.</p>
 
       <div class="exp-grid">
         <!-- AstraZeneca -->
         <article class="exp-card">
-          <div class="exp-image-wrap">
-            <img src="astrazenecapicturebell.jpg" alt="Aiden Lau at AstraZeneca ringing the NYSE bell">
+          <div class="exp-image-wrap" onclick="openModal('astrazenecapicturebell_2.jpg', 'AstraZeneca Automation Technician Internship')">
+            <img src="astrazenecapicturebell_2.jpg" alt="Aiden Lau at AstraZeneca ringing the NYSE bell">
+            <div class="zoom-hint"><i data-lucide="maximize-2" style="width: 12px; height: 12px;"></i> Click to view photo</div>
           </div>
           <div class="exp-content">
             <div class="exp-role-meta">
@@ -603,15 +700,15 @@
             </div>
             <div class="exp-company">AstraZeneca • Waltham, MA</div>
             <ul class="exp-bullets">
-              <li>Configured and troubleshot PLC-driven control loops integrating hardware sensors and actuators on automated pharmaceutical lab machinery.</li>
-              <li>Validated control systems and monitored electrical signals to guarantee process instrumentation accuracy and hardware uptime.</li>
-              <li>Diagnosed root-cause hardware failures and conducted routine preventive maintenance to prevent line stoppage.</li>
+              <li>Configured and troubleshot PLC-driven control loops integrating hardware sensors and actuators on automated pharmaceutical lab machinery[cite: 5].</li>
+              <li>Validated control systems and monitored electrical signals to guarantee process instrumentation accuracy and hardware uptime[cite: 5].</li>
+              <li>Diagnosed root-cause hardware failures and conducted routine preventive maintenance to prevent line downtime[cite: 5].</li>
             </ul>
             <div class="tag-container">
               <span class="tag">PLC Systems</span>
               <span class="tag">Control Loops</span>
-              <span class="tag">Signal Monitoring</span>
-              <span class="tag">Lab Automation</span>
+              <span class="tag">Process Instrumentation</span>
+              <span class="tag">Hardware Reliability</span>
               <span class="tag">Preventive Maintenance</span>
             </div>
           </div>
@@ -619,8 +716,9 @@
 
         <!-- HyAxiom -->
         <article class="exp-card">
-          <div class="exp-image-wrap">
-            <img src="Hyaxiompresetation.jpg" alt="Aiden Lau presenting Navi architecture at HyAxiom">
+          <div class="exp-image-wrap" onclick="openModal('Hyaxiompresetation_2.jpg', 'HyAxiom Presentation — Navi Agentic Flowchart System')">
+            <img src="Hyaxiompresetation_2.jpg" alt="Aiden Lau presenting Navi architecture at HyAxiom">
+            <div class="zoom-hint"><i data-lucide="maximize-2" style="width: 12px; height: 12px;"></i> Click to view photo</div>
           </div>
           <div class="exp-content">
             <div class="exp-role-meta">
@@ -629,15 +727,15 @@
             </div>
             <div class="exp-company">HyAxiom • South Windsor, CT (Remote)</div>
             <ul class="exp-bullets">
-              <li>Co-developed <em>Navi</em>, an agentic AI developer tool converting technical troubleshooting flowcharts into automated, human-reviewable GitHub Pull Requests.</li>
-              <li>Built a Python-based parse-generate-validate-PR pipeline leveraging Gemma 4 31B-IT and BGE-M3 vector embeddings for diagram parsing.</li>
-              <li>Engineered serverless backend pipelines across AWS Lambda and API Gateway for scalable diagram translation and automated testing.</li>
+              <li>Co-developed <em>Navi</em>, an agentic AI developer tool converting technical troubleshooting flowcharts into automated, human-reviewable GitHub Pull Requests[cite: 5, 6].</li>
+              <li>Built a Python-based parse-generate-validate-PR pipeline leveraging Gemma 4 31B-IT and BGE-M3 vector embeddings for diagram parsing[cite: 5].</li>
+              <li>Engineered serverless backend pipelines across AWS Lambda and API Gateway for scalable diagram translation and automated testing[cite: 5].</li>
             </ul>
             <div class="tag-container">
               <span class="tag">Python</span>
               <span class="tag">AWS Lambda</span>
               <span class="tag">API Gateway</span>
-              <span class="tag">Agentic AI</span>
+              <span class="tag">Gemma 4 31B-IT</span>
               <span class="tag">CI/CD & Git PRs</span>
             </div>
           </div>
@@ -653,14 +751,15 @@
       <div class="projects-grid">
         <!-- Ultrasonic Alarm -->
         <div class="project-card">
-          <div class="project-media">
-            <img src="proximitysystem.jpg" alt="Arduino Ultrasonic Proximity System on Breadboard">
+          <div class="project-media" onclick="openModal('proximitysystem_2.jpg', 'Arduino Ultrasonic Proximity Alarm Breadboard Setup')">
+            <img src="proximitysystem_2.jpg" alt="Arduino Ultrasonic Proximity System on Breadboard">
+            <div class="zoom-hint"><i data-lucide="maximize-2" style="width: 12px; height: 12px;"></i> View Circuit</div>
           </div>
           <div class="project-info">
             <span class="project-category">Embedded Systems & Firmware</span>
             <h3>Arduino Ultrasonic Proximity Alarm</h3>
             <p>
-              Sensor-driven distance detection system designed on an ELEGOO UNO R3 with an HC-SR04 ultrasonic transducer, active buzzer, and LED thresholds. Programmed real-time C/C++ timing loops to filter noise and eliminate false triggers.
+              Sensor-driven distance detection system designed on an ELEGOO UNO R3 with an HC-SR04 ultrasonic transducer, active buzzer, and LED thresholds[cite: 1, 5]. Programmed real-time C/C++ timing loops to filter sensor bounce and eliminate false triggers[cite: 5].
             </p>
             <div class="tag-container">
               <span class="tag">Arduino UNO</span>
@@ -673,40 +772,42 @@
 
         <!-- Multi-Channel Mixer & Optical Communicator -->
         <div class="project-card">
-          <div class="project-media" style="padding: 10px; background: #fff;">
-            <img src="MicAuxSolarCellProject.pdf" type="application/pdf" style="object-fit: contain;" alt="Analog Circuit Schematics and Summing Amplifier Diagram">
+          <div class="project-media schematic-box" onclick="openModal('MicAuxSolarCellProject-1.jpg', 'Analog Circuits 2001: Multi-Channel Summing Amplifier & Laser Transmitter Schematic')">
+            <img src="MicAuxSolarCellProject-1.jpg" alt="Analog Circuit Schematics and Summing Amplifier Diagram">
+            <div class="zoom-hint"><i data-lucide="maximize-2" style="width: 12px; height: 12px;"></i> View Schematic</div>
           </div>
           <div class="project-info">
             <span class="project-category">Mixed-Signal & Analog Circuits</span>
             <h3>Optical & Audio Summing Communicator</h3>
             <p>
-              Multichannel analog amplifier uniting solar cell, electret mic, and aux signals. Features preamps with potentiometer gain stages, multi-op-amp summing buffers driving a speaker, and a modulated laser diode transmitter with level indicators.
+              Multichannel analog amplifier uniting solar cell, electret mic, and aux signals[cite: 2]. Features preamps with potentiometer gain stages[cite: 2], multi-op-amp summing buffers driving a speaker[cite: 2], and a modulated laser diode transmitter with level indicators[cite: 2].
             </p>
             <div class="tag-container">
               <span class="tag">LTspice</span>
               <span class="tag">Op-Amps</span>
               <span class="tag">Summing Circuits</span>
-              <span class="tag">Laser Transmitter</span>
+              <span class="tag">Laser Modulation</span>
             </div>
           </div>
         </div>
 
         <!-- A.R.C.T.U.S. Tower -->
         <div class="project-card">
-          <div class="project-media">
-            <img src="ARCTUS.jpg" alt="A.R.C.T.U.S. Autonomous Radio Control Tower Display Board">
+          <div class="project-media" onclick="openModal('ARCTUS_2.jpg', 'A.R.C.T.U.S. Autonomous Radio Control Tower Display Board')">
+            <img src="ARCTUS_2.jpg" alt="A.R.C.T.U.S. Autonomous Radio Control Tower Display Board">
+            <div class="zoom-hint"><i data-lucide="maximize-2" style="width: 12px; height: 12px;"></i> View Poster</div>
           </div>
           <div class="project-info">
             <span class="project-category">Renewable Power & Embedded Design</span>
             <h3>A.R.C.T.U.S. Solar Radio Tower</h3>
             <p>
-              Led a multidisciplinary engineering team building an off-grid radio tower for Mars habitat communication simulations. Engineered custom 3D printed lattice housing, photovoltaic power balancing, and low-draw microcontroller LED indicator circuitry.
+              Led a multidisciplinary engineering team building an off-grid radio tower for Mars habitat communication simulations[cite: 4, 5]. Engineered custom 3D printed lattice housing, photovoltaic power balancing, and low-draw microcontroller LED indicator circuitry[cite: 4, 5].
             </p>
             <div class="tag-container">
               <span class="tag">Solar Harvesting</span>
               <span class="tag">Microcontrollers</span>
               <span class="tag">CAD Modeling</span>
-              <span class="tag">Team Lead</span>
+              <span class="tag">System Integration</span>
             </div>
           </div>
         </div>
@@ -722,59 +823,5 @@
         <div class="skill-category">
           <h4><i data-lucide="cpu" style="width: 16px;"></i> Hardware & Controls</h4>
           <ul class="skill-list">
-            <li>PLC Systems & Control Loops</li>
-            <li>Process Instrumentation</li>
-            <li>Circuit Prototyping & Breadboarding</li>
-            <li>Ultrasonic & Analog Sensors</li>
-            <li>Signal Integrity Monitoring</li>
-          </ul>
-        </div>
-
-        <div class="skill-category">
-          <h4><i data-lucide="activity" style="width: 16px;"></i> Lab & Validation</h4>
-          <ul class="skill-list">
-            <li>LTspice Circuit Simulation</li>
-            <li>Digital Oscilloscopes</li>
-            <li>Digital Multimeters (DMM)</li>
-            <li>Function Generators & DC Supplies</li>
-            <li>Hardware Preventive Maintenance</li>
-          </ul>
-        </div>
-
-        <div class="skill-category">
-          <h4><i data-lucide="code" style="width: 16px;"></i> Software & Embedded</h4>
-          <ul class="skill-list">
-            <li>C / C++ (Arduino IDE)</li>
-            <li>Python 3</li>
-            <li>AWS (Lambda, API Gateway)</li>
-            <li>Git / GitHub CI & Workflows</li>
-            <li>Tinkercad & CAD Modeling</li>
-          </ul>
-        </div>
-
-        <div class="skill-category">
-          <h4><i data-lucide="book-open" style="width: 16px;"></i> Relevant Coursework</h4>
-          <ul class="skill-list">
-            <li>ECE 2001 (Electrical Circuits)</li>
-            <li>Signals and Systems</li>
-            <li>Digital Logic Design (Prin. & Prac.)</li>
-            <li>Electronic Circuit Des. & Analysis</li>
-            <li>Probability Models for Engineering</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-      <p>© 2026 Aiden Lau. Built with HTML5, CSS Grid, and Lucide Icons.</p>
-      <p style="margin-top: 0.25rem;">Storrs, CT & Braintree, MA • lht24007@uconn.edu • (781) 964-3658</p>
-    </footer>
-  </div>
-
-  <script>
-    // Initialize Lucide vector icons
-    lucide.createIcons();
-  </script>
-</body>
-</html>
+            <li>PLC Systems & Control Loops[cite: 5]</li>
+            <li>Process Instrumentation
