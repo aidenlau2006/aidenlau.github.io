@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aiden Lau | Robotics & Hardware Engineering Portfolio</title>
+  <meta name="description" content="Portfolio of Aiden Lau — Robotics & Electrical Engineering student at UConn. Specializing in hardware validation, embedded firmware, PLC automation, and circuit design.">
+
+  <!-- Inter & JetBrains Mono Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #111827;
+      --card-border: #1f293d;
+      --accent: #00f0ff;
+      --accent-glow: rgba(0, 240, 255, 0.18);
+      --accent-purple: #7928ca;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --code-font: 'Fira Code', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(0, 240, 255, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 85% 65%, rgba(121, 40, 202, 0.05) 0%, transparent 40%),
+        linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+    }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      background: rgba(9, 13, 22, 0.85);
+      border-bottom: 1px solid var(--card-border);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-family: var(--code-font);
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 1.15rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 5rem 0 3.5rem;
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--code-font);
+      font-size: 0.8rem;
+      color: var(--accent);
+      background: rgba(0, 240, 255, 0.08);
+      border: 1px solid rgba(0, 240, 255, 0.25);
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      margin-bottom: 1.25rem;
+    }
+
+    .pulse {
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--accent);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .hero h1 {
+      font-size: 2.85rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, #00f0ff 0%, #70a6ff 50%, #9f7aea 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-summary {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 1.75rem;
+      max-width: 580px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.4rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #06090e;
+      border: 1px solid var(--accent);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 0 16px var(--accent-glow);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--card-border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--text-muted);
+      background: rgba(255,255,255,0.03);
+    }
+
+    /* Terminal Widget */
+    .hero-card {
+      background: #0d121f;
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+    }
+
+    .terminal-header {
+      background: #151b2c;
+      padding: 0.6rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      border-bottom: 1px solid var(--card-border);
+      font-family: var(--code-font);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .dot-red { background: #ff5f56; }
+    .dot-yellow { background: #ffbd2e; }
+    .dot-green { background: #27c93f; }
+
+    .terminal-body {
+      padding: 1.25rem;
+      font-family: var(--code-font);
+      font-size: 0.82rem;
+      color: #cfd6e6;
+    }
+
+    .terminal-body .field {
+      color: #79c0ff;
+    }
+    .terminal-body .str {
+      color: #a5d6ff;
+    }
+    .terminal-body .num {
+      color: #ff7b72;
+    }
+
+    /* Section Styling */
+    section {
+      padding: 4.5rem 0;
+      border-top: 1px solid var(--card-border);
+    }
+
+    .section-title {
+      font-size: 1.85rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      font-size: 0.95rem;
+    }
+
+    /* Internships Experience Grid */
+    .exp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .exp-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .exp-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(0, 240, 255, 0.4);
+    }
+
+    .exp-image-wrap {
+      height: 240px;
+      width: 100%;
+      overflow: hidden;
+      background: #080b12;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .exp-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform 0.3s ease;
+    }
+
+    .exp-card:hover .exp-image-wrap img {
+      transform: scale(1.02);
+    }
+
+    .exp-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .exp-role-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.4rem;
+    }
+
+    .exp-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .exp-company {
+      font-family: var(--code-font);
+      color: var(--accent);
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .exp-date {
+      font-family: var(--code-font);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      background: #182236;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+    }
+
+    .exp-bullets {
+      list-style-type: none;
+      margin: 0.75rem 0 1.25rem;
+      flex: 1;
+    }
+
+    .exp-bullets li {
+      font-size: 0.88rem;
+      color: #cbd5e1;
+      position: relative;
+      padding-left: 1.25rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .exp-bullets li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .tag-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .tag {
+      font-family: var(--code-font);
+      font-size: 0.72rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 0.25rem 0.55rem;
+      border-radius: 4px;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+    }
+
+    .project-card:hover {
+      border-color: rgba(0, 240, 255, 0.4);
+      transform: translateY(-3px);
+    }
+
+    .project-media {
+      height: 200px;
+      background: #090e17;
+      overflow: hidden;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .project-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .project-info {
+      padding: 1.35rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .project-category {
+      font-family: var(--code-font);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+
+    .project-info h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    .project-info p {
+      color: #94a3b8;
+      font-size: 0.86rem;
+      margin-bottom: 1.25rem;
+      flex: 1;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-category {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+
+    .skill-category h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.9rem;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 0.6rem;
+    }
+
+    .skill-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .skill-list li {
+      font-family: var(--code-font);
+      font-size: 0.8rem;
+      color: #cbd5e1;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .skill-list li::before {
+      content: "";
+      width: 4px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 2.5rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 2rem;
+      }
+      .exp-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <nav>
+    <a href="#" class="brand">
+      <i data-lucide="cpu" style="width: 18px; height: 18px;"></i> AIDEN_LAU.sys
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#internships">Internships</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="Aiden_Lau_Resume.pdf" target="_blank" style="color: var(--accent);">Resume [PDF]</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <!-- Hero Section -->
+    <header class="hero" id="about">
+      <div>
+        <div class="status-badge">
+          <div class="pulse"></div> SEEKING HARDWARE ENGINEERING INTERNSHIP (BOSTON / REMOTE)
+        </div>
+        <h1>Robotics & Hardware<br><span>System Engineer.</span></h1>
+        <p class="hero-summary">
+          Robotics Engineering student at the <strong>University of Connecticut</strong> (switching to Electrical Spring 2027, GPA: 3.78). 
+          Experienced in PLC-driven automation, LTspice mixed-signal simulation, embedded firmware (C/C++), and rapid prototyping.
+        </p>
+        <div class="hero-ctas">
+          <a href="Aiden_Lau_Resume.pdf" target="_blank" class="btn btn-primary">
+            <i data-lucide="file-down" style="width: 16px; height: 16px;"></i> Download Resume
+          </a>
+          <a href="mailto:lht24007@uconn.edu" class="btn btn-secondary">
+            <i data-lucide="mail" style="width: 16px; height: 16px;"></i> Contact Aiden
+          </a>
+          <a href="https://linkedin.com/in/aiden-lau910" target="_blank" class="btn btn-secondary">
+            <i data-lucide="linkedin" style="width: 16px; height: 16px;"></i> LinkedIn
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Telemetry / Profile Terminal Box -->
+      <div class="hero-card">
+        <div class="terminal-header">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+          <span style="margin-left: auto;">profile_specs.json</span>
+        </div>
+        <div class="terminal-body">
+          <pre><code>{
+  <span class="field">"candidate"</span>: <span class="str">"Aiden Lau"</span>,
+  <span class="field">"institution"</span>: <span class="str">"University of Connecticut"</span>,
+  <span class="field">"major"</span>: <span class="str">"B.S. Robotics / Electrical Eng."</span>,
+  <span class="field">"gpa"</span>: <span class="num">3.78</span>,
+  <span class="field">"location"</span>: <span class="str">"Braintree, MA & Storrs, CT"</span>,
+  <span class="field">"primary_stack"</span>: [
+    <span class="str">"PLC Control Systems"</span>,
+    <span class="str">"Embedded C/C++"</span>,
+    <span class="str">"LTspice & Breadboarding"</span>,
+    <span class="str">"Python & Cloud AI Pipelines"</span>
+  ],
+  <span class="field">"leadership"</span>: <span class="str">"Navy STEM Crew Ambassador"</span>
+}</code></pre>
+        </div>
+      </div>
+    </header>
+
+    <!-- Internships Section -->
+    <section id="internships">
+      <h2 class="section-title"><i data-lucide="briefcase" style="color: var(--accent);"></i> Industry Internships</h2>
+      <p class="section-sub">Demonstrated experience supporting critical laboratory automation and deploying agentic developer infrastructure.</p>
+
+      <div class="exp-grid">
+        <!-- AstraZeneca -->
+        <article class="exp-card">
+          <div class="exp-image-wrap">
+            <img src="astrazenecapicturebell.jpg" alt="Aiden Lau at AstraZeneca ringing the NYSE bell">
+          </div>
+          <div class="exp-content">
+            <div class="exp-role-meta">
+              <h3 class="exp-title">Automation Technician Intern</h3>
+              <span class="exp-date">Jun 2026 – Aug 2026</span>
+            </div>
+            <div class="exp-company">AstraZeneca • Waltham, MA</div>
+            <ul class="exp-bullets">
+              <li>Configured and troubleshot PLC-driven control loops integrating hardware sensors and actuators on automated pharmaceutical lab machinery.</li>
+              <li>Validated control systems and monitored electrical signals to guarantee process instrumentation accuracy and hardware uptime.</li>
+              <li>Diagnosed root-cause hardware failures and conducted routine preventive maintenance to prevent line stoppage.</li>
+            </ul>
+            <div class="tag-container">
+              <span class="tag">PLC Systems</span>
+              <span class="tag">Control Loops</span>
+              <span class="tag">Signal Monitoring</span>
+              <span class="tag">Lab Automation</span>
+              <span class="tag">Preventive Maintenance</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- HyAxiom -->
+        <article class="exp-card">
+          <div class="exp-image-wrap">
+            <img src="Hyaxiompresetation.jpg" alt="Aiden Lau presenting Navi architecture at HyAxiom">
+          </div>
+          <div class="exp-content">
+            <div class="exp-role-meta">
+              <h3 class="exp-title">Software Engineer Intern</h3>
+              <span class="exp-date">May 2026 – Sep 2026</span>
+            </div>
+            <div class="exp-company">HyAxiom • South Windsor, CT (Remote)</div>
+            <ul class="exp-bullets">
+              <li>Co-developed <em>Navi</em>, an agentic AI developer tool converting technical troubleshooting flowcharts into automated, human-reviewable GitHub Pull Requests.</li>
+              <li>Built a Python-based parse-generate-validate-PR pipeline leveraging Gemma 4 31B-IT and BGE-M3 vector embeddings for diagram parsing.</li>
+              <li>Engineered serverless backend pipelines across AWS Lambda and API Gateway for scalable diagram translation and automated testing.</li>
+            </ul>
+            <div class="tag-container">
+              <span class="tag">Python</span>
+              <span class="tag">AWS Lambda</span>
+              <span class="tag">API Gateway</span>
+              <span class="tag">Agentic AI</span>
+              <span class="tag">CI/CD & Git PRs</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Engineering Projects Section -->
+    <section id="projects">
+      <h2 class="section-title"><i data-lucide="layers" style="color: var(--accent);"></i> Engineering Projects</h2>
+      <p class="section-sub">Hardware prototypes, circuit designs, and sensor systems built and validated in lab and hands-on environments.</p>
+
+      <div class="projects-grid">
+        <!-- Ultrasonic Alarm -->
+        <div class="project-card">
+          <div class="project-media">
+            <img src="proximitysystem.jpg" alt="Arduino Ultrasonic Proximity System on Breadboard">
+          </div>
+          <div class="project-info">
+            <span class="project-category">Embedded Systems & Firmware</span>
+            <h3>Arduino Ultrasonic Proximity Alarm</h3>
+            <p>
+              Sensor-driven distance detection system designed on an ELEGOO UNO R3 with an HC-SR04 ultrasonic transducer, active buzzer, and LED thresholds. Programmed real-time C/C++ timing loops to filter noise and eliminate false triggers.
+            </p>
+            <div class="tag-container">
+              <span class="tag">Arduino UNO</span>
+              <span class="tag">HC-SR04</span>
+              <span class="tag">Embedded C/C++</span>
+              <span class="tag">Signal Debouncing</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Multi-Channel Mixer & Optical Communicator -->
+        <div class="project-card">
+          <div class="project-media" style="padding: 10px; background: #fff;">
+            <img src="MicAuxSolarCellProject.pdf" type="application/pdf" style="object-fit: contain;" alt="Analog Circuit Schematics and Summing Amplifier Diagram">
+          </div>
+          <div class="project-info">
+            <span class="project-category">Mixed-Signal & Analog Circuits</span>
+            <h3>Optical & Audio Summing Communicator</h3>
+            <p>
+              Multichannel analog amplifier uniting solar cell, electret mic, and aux signals. Features preamps with potentiometer gain stages, multi-op-amp summing buffers driving a speaker, and a modulated laser diode transmitter with level indicators.
+            </p>
+            <div class="tag-container">
+              <span class="tag">LTspice</span>
+              <span class="tag">Op-Amps</span>
+              <span class="tag">Summing Circuits</span>
+              <span class="tag">Laser Transmitter</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- A.R.C.T.U.S. Tower -->
+        <div class="project-card">
+          <div class="project-media">
+            <img src="ARCTUS.jpg" alt="A.R.C.T.U.S. Autonomous Radio Control Tower Display Board">
+          </div>
+          <div class="project-info">
+            <span class="project-category">Renewable Power & Embedded Design</span>
+            <h3>A.R.C.T.U.S. Solar Radio Tower</h3>
+            <p>
+              Led a multidisciplinary engineering team building an off-grid radio tower for Mars habitat communication simulations. Engineered custom 3D printed lattice housing, photovoltaic power balancing, and low-draw microcontroller LED indicator circuitry.
+            </p>
+            <div class="tag-container">
+              <span class="tag">Solar Harvesting</span>
+              <span class="tag">Microcontrollers</span>
+              <span class="tag">CAD Modeling</span>
+              <span class="tag">Team Lead</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Skills Section -->
+    <section id="skills">
+      <h2 class="section-title"><i data-lucide="wrench" style="color: var(--accent);"></i> Technical Skills & Toolkit</h2>
+      <p class="section-sub">Hardware instruments, prototyping tools, and computing environments used in engineering practice.</p>
+
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h4><i data-lucide="cpu" style="width: 16px;"></i> Hardware & Controls</h4>
+          <ul class="skill-list">
+            <li>PLC Systems & Control Loops</li>
+            <li>Process Instrumentation</li>
+            <li>Circuit Prototyping & Breadboarding</li>
+            <li>Ultrasonic & Analog Sensors</li>
+            <li>Signal Integrity Monitoring</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h4><i data-lucide="activity" style="width: 16px;"></i> Lab & Validation</h4>
+          <ul class="skill-list">
+            <li>LTspice Circuit Simulation</li>
+            <li>Digital Oscilloscopes</li>
+            <li>Digital Multimeters (DMM)</li>
+            <li>Function Generators & DC Supplies</li>
+            <li>Hardware Preventive Maintenance</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h4><i data-lucide="code" style="width: 16px;"></i> Software & Embedded</h4>
+          <ul class="skill-list">
+            <li>C / C++ (Arduino IDE)</li>
+            <li>Python 3</li>
+            <li>AWS (Lambda, API Gateway)</li>
+            <li>Git / GitHub CI & Workflows</li>
+            <li>Tinkercad & CAD Modeling</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h4><i data-lucide="book-open" style="width: 16px;"></i> Relevant Coursework</h4>
+          <ul class="skill-list">
+            <li>ECE 2001 (Electrical Circuits)</li>
+            <li>Signals and Systems</li>
+            <li>Digital Logic Design (Prin. & Prac.)</li>
+            <li>Electronic Circuit Des. & Analysis</li>
+            <li>Probability Models for Engineering</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2026 Aiden Lau. Built with HTML5, CSS Grid, and Lucide Icons.</p>
+      <p style="margin-top: 0.25rem;">Storrs, CT & Braintree, MA • lht24007@uconn.edu • (781) 964-3658</p>
+    </footer>
+  </div>
+
+  <script>
+    // Initialize Lucide vector icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>
